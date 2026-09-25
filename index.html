@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GOAT FC COINS | Coins EA FC 27 Ultimate Team</title>
+  <meta name="description" content="Coins para EA FC 27 Ultimate Team. Lance no mercado ou Comfort Mode pelo Web App. Quantidade e preço no WhatsApp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #07090c;
+      --fg: #f3f4f6;
+      --surface: #11151c;
+      --elevated: #181d26;
+      --muted: #9aa3b2;
+      --primary: #00e676;
+      --primary-fg: #04140a;
+      --gold: #c9a227;
+      --border: #262d38;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: var(--bg); color: var(--fg); font-family: Outfit, system-ui, sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .wrap { max-width: 72rem; margin: 0 auto; padding: 0 1.25rem; }
+    .display { font-family: "Barlow Condensed", sans-serif; font-weight: 800; letter-spacing: -0.02em; }
+    header {
+      position: sticky; top: 0; z-index: 40;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      height: 4rem; padding: 0 1.25rem; max-width: 72rem; margin: 0 auto;
+      background: color-mix(in oklab, var(--bg) 80%, transparent);
+      backdrop-filter: blur(12px); border-bottom: 1px solid color-mix(in oklab, var(--border) 80%, transparent);
+    }
+    .brand { display: flex; align-items: center; gap: .75rem; font-weight: 800; letter-spacing: .04em; }
+    .brand img { width: 40px; height: 40px; border-radius: 6px; object-fit: cover; }
+    .brand span { color: var(--primary); }
+    nav { display: none; gap: 1.5rem; color: var(--muted); font-size: .9rem; }
+    @media (min-width: 768px) { nav { display: flex; } }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+      background: var(--primary); color: var(--primary-fg); font-weight: 600;
+      border-radius: .75rem; padding: 0 1.25rem; height: 2.5rem; font-size: .9rem;
+      box-shadow: 0 0 24px color-mix(in oklab, var(--primary) 35%, transparent);
+    }
+    .btn.lg { height: 3.5rem; padding: 0 1.75rem; font-size: 1rem; }
+    .btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--border); box-shadow: none; }
+    .btn.full { width: 100%; }
+    .hero {
+      position: relative; min-height: 100svh; display: flex; align-items: center; justify-content: center;
+      text-align: center; overflow: hidden; padding: 5rem 1.25rem 4rem;
+    }
+    .hero img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 28%; }
+    .hero .veil {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, color-mix(in oklab, var(--bg) 55%, transparent), color-mix(in oklab, var(--bg) 28%, transparent) 38%, color-mix(in oklab, var(--bg) 72%, transparent));
+    }
+    .hero .content { position: relative; max-width: 48rem; }
+    .hero h1 { font-size: clamp(2.6rem, 7vw, 4.5rem); line-height: .95; }
+    .hero h1 em { font-style: normal; color: var(--primary); }
+    .hero p { margin: 1.25rem auto 0; max-width: 36rem; color: var(--muted); font-size: 1.1rem; line-height: 1.6; }
+    .hero .btn { margin-top: 2rem; }
+    .bar {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem 2rem;
+      padding: 1rem; border-block: 1px solid var(--border); background: var(--surface);
+      color: var(--muted); font-size: .9rem;
+    }
+    section { padding: 5rem 0; }
+    .center { text-align: center; }
+    .kicker { color: var(--primary); font-size: .75rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; }
+    h2 { font-size: clamp(2rem, 5vw, 3rem); margin-top: .75rem; }
+    .lead { margin: 1rem auto 0; max-width: 40rem; color: var(--muted); line-height: 1.6; }
+    .grid2 { display: grid; gap: 1.5rem; margin-top: 3rem; }
+    @media (min-width: 1024px) { .grid2 { grid-template-columns: 1fr 1fr; } }
+    .card { overflow: hidden; border-radius: 1rem; border: 1px solid var(--border); background: var(--surface); display: flex; flex-direction: column; }
+    .card.featured { border-color: var(--primary); }
+    .card .shot { position: relative; height: 13rem; background: var(--bg); }
+    .card .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .card .shot::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, var(--surface)); }
+    .badge { position: absolute; left: 1rem; top: 1rem; z-index: 1; border-radius: 999px; padding: .25rem .75rem; font-size: .75rem; font-weight: 600; background: var(--elevated); }
+    .card.featured .badge { background: var(--primary); color: var(--primary-fg); }
+    .card .body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+    .card h3 { font-size: 1.75rem; margin: .5rem 0 .75rem; }
+    .card .body > p { color: var(--muted); font-size: .9rem; line-height: 1.6; }
+    .card ul { list-style: none; margin: 1.25rem 0 1.5rem; display: grid; gap: .5rem; color: var(--muted); font-size: .9rem; }
+    .card li { padding-left: .9rem; position: relative; }
+    .card li::before { content: ""; position: absolute; left: 0; top: .55rem; width: 6px; height: 6px; border-radius: 99px; background: var(--primary); }
+    .benefits { display: grid; gap: 1rem; }
+    @media (min-width: 640px) { .benefits { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .benefits { grid-template-columns: repeat(4, 1fr); } }
+    .benefits article { border: 1px solid var(--border); background: var(--surface); border-radius: .75rem; padding: 1.25rem; }
+    .benefits h3 { margin: .75rem 0 .35rem; font-size: 1rem; }
+    .benefits p { color: var(--muted); font-size: .875rem; line-height: 1.55; }
+    .quotes { position: relative; overflow: hidden; }
+    .quotes .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .7; }
+    .quotes .veil { position: absolute; inset: 0; background: linear-gradient(180deg, color-mix(in oklab, var(--bg) 50%, transparent), color-mix(in oklab, var(--bg) 78%, transparent)); }
+    .quotes .inner { position: relative; }
+    .qgrid { display: grid; gap: 1.25rem; margin-top: 3rem; }
+    @media (min-width: 768px) { .qgrid { grid-template-columns: 1fr 1fr 1fr; } }
+    blockquote { border-left: 2px solid var(--primary); background: color-mix(in oklab, var(--surface) 90%, transparent); padding: 1.5rem; border-radius: .75rem; }
+    blockquote p { color: var(--muted); font-size: .9rem; line-height: 1.6; margin: 1rem 0; }
+    .stars { color: var(--gold); letter-spacing: .1em; }
+    .faq { max-width: 48rem; margin: 0 auto; display: grid; gap: .75rem; margin-top: 2.5rem; }
+    details { border: 1px solid var(--border); background: var(--surface); border-radius: .75rem; padding: 1rem 1.25rem; }
+    summary { cursor: pointer; font-weight: 500; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    details p { margin-top: .75rem; color: var(--muted); font-size: .9rem; line-height: 1.6; }
+    .cta { position: relative; overflow: hidden; text-align: center; padding: 6rem 1.25rem; }
+    .cta img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .cta .veil { position: absolute; inset: 0; background: linear-gradient(180deg, color-mix(in oklab, var(--bg) 45%, transparent), color-mix(in oklab, var(--bg) 70%, transparent)); }
+    .cta .inner { position: relative; max-width: 40rem; margin: 0 auto; }
+    .cta p { margin: 1rem auto 0; color: var(--muted); }
+    .cta .btn { margin-top: 2rem; }
+    footer { border-top: 1px solid var(--border); padding: 2.5rem 1.25rem; text-align: center; color: var(--muted); font-size: .875rem; display: grid; gap: 1rem; justify-items: center; }
+    footer .tiny { max-width: 36rem; font-size: .75rem; line-height: 1.55; }
+    .fab {
+      position: fixed; right: 1.25rem; bottom: 1.25rem; width: 3.5rem; height: 3.5rem; border-radius: 999px;
+      background: var(--primary); color: var(--primary-fg); display: grid; place-items: center;
+      box-shadow: 0 8px 30px color-mix(in oklab, var(--primary) 45%, transparent);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="#topo">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='6' fill='%2311151c'/%3E%3Ctext x='20' y='26' text-anchor='middle' font-size='16' fill='%2300e676' font-family='sans-serif' font-weight='800'%3EG%3C/text%3E%3C/svg%3E" alt="" />
+      GOAT<span>FC</span>COINS
+    </a>
+    <nav>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#depoimentos">Jogadores</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn" href="https://wa.me/5511933081840?text=Ol%C3%A1%21%20Quero%20comprar%20coins%20para%20EA%20FC%2027%20Ultimate%20Team." target="_blank" rel="noopener noreferrer">Comprar</a>
+  </header>
+
+  <main>
+    <section class="hero" id="topo">
+      <img class="bg" src="https://drop-assets.ea.com/images/7DxBs7NC6NNqTfcLTWYQ6H/2d26f2e9116572b848d9e19e8562af95/fc27-icons-featured-image-5x4.jpg" alt="EA SPORTS FC 27 ICONS" />
+      <div class="veil"></div>
+      <div class="content">
+        <h1 class="display">Pronto para dominar<br /><em>o Ultimate Team?</em></h1>
+        <p>EA FC 27 já começou. Garante as coins agora e monta o elenco enquanto o mercado ainda está barato.</p>
+        <a class="btn lg" href="https://wa.me/5511933081840?text=Ol%C3%A1%21%20Quero%20comprar%20coins%20para%20EA%20FC%2027%20Ultimate%20Team." target="_blank" rel="noopener noreferrer">Falar no WhatsApp agora</a>
+      </div>
+    </section>
+
+    <div class="bar">
+      <span>PlayStation</span><span>Xbox</span><span>PC</span><span>Quantidade e preço no WhatsApp</span>
+    </div>
+
+    <section id="como-funciona">
+      <div class="wrap center">
+        <p class="kicker">Como funciona</p>
+        <h2 class="display">Dois métodos. Você escolhe no WhatsApp.</h2>
+        <p class="lead">Sem pacote fechado. Você diz quanto precisa, a gente combina o método e o valor do mercado na hora.</p>
+        <div class="grid2">
+          <article class="card">
+            <div class="shot">
+              <img src="https://drop-assets.ea.com/images/5ngdxq3vE16lRfPuzNt4o3/f81fedf5bdcbd07d45dd1438edc205e4/fc27-top-27-men-1-16x9.jpg" alt="Cartas gold oficiais do EA FC 27" />
+              <span class="badge">Mercado de transferências</span>
+            </div>
+            <div class="body">
+              <p class="kicker">Lance</p>
+              <h3 class="display">Você lista. A gente dá o lance.</h3>
+              <p>Com base no valor que você quer comprar, pedimos que liste uma carta no mercado de transferências. Damos um lance com o valor da carta + as coins compradas + a taxa da EA.</p>
+              <ul>
+                <li>Sem acesso à sua conta</li>
+                <li>Você lista a carta combinada</li>
+                <li>Lance = carta + coins + taxa da EA</li>
+                <li>Ideal se você já tem carta no clube</li>
+              </ul>
+              <a class="btn ghost full" href="https://wa.me/5511933081840?text=Ol%C3%A1%21%20Quero%20comprar%20coins%20pelo%20m%C3%A9todo%20de%20Lance%20no%20mercado%20de%20transfer%C3%AAncias%20do%20EA%20FC%2027." target="_blank" rel="noopener noreferrer">Quero comprar por lance</a>
+            </div>
+          </article>
+          <article class="card featured">
+            <div class="shot">
+              <img src="https://drop-assets.ea.com/images/597Qk9E9rnNxY0q4g6Vu0w/9e49b5926f4f3845fef75bbcfc8042b3/fc-27-screenshots-FUT-Gallery-Clean-16x9.jpg" alt="Galeria do Ultimate Team" />
+              <span class="badge">Mais seguro hoje</span>
+            </div>
+            <div class="body">
+              <p class="kicker">Comfort Mode</p>
+              <h3 class="display">A gente entrega no automático.</h3>
+              <p>Sua conta precisa ter o Web App liberado. Usamos e-mail, senha e códigos de segurança para o robô concluir a transferência. Não é necessário ter muitas coins no clube.</p>
+              <ul>
+                <li>Web App liberado na conta</li>
+                <li>E-mail, senha e códigos de segurança</li>
+                <li>Processo automatizado</li>
+                <li>Pode começar com poucas coins no clube</li>
+              </ul>
+              <a class="btn full" href="https://wa.me/5511933081840?text=Ol%C3%A1%21%20Quero%20comprar%20coins%20pelo%20Comfort%20Mode%20(Web%20App)%20no%20EA%20FC%2027." target="_blank" rel="noopener noreferrer">Quero o Comfort Mode</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap benefits">
+        <article><h3>Preço no WhatsApp</h3><p>O mercado muda o tempo todo. Combinamos quantidade e valor na conversa — sem pacote travado.</p></article>
+        <article><h3>Dois métodos</h3><p>Lance no mercado, sem login. Ou Comfort Mode pelo Web App, o caminho mais seguro hoje.</p></article>
+        <article><h3>PlayStation, Xbox e PC</h3><p>Ultimate Team do EA FC 27 nas três plataformas. Informe a sua na primeira mensagem.</p></article>
+        <article><h3>Atendimento humano</h3><p>Nada de carrinho. Você fala direto com a gente, tira dúvida e fecha na hora.</p></article>
+      </div>
+    </section>
+
+    <section class="quotes" id="depoimentos">
+      <img class="bg" src="https://drop-assets.ea.com/images/29FMSo1NnjtTWJSh7eliMC/1ff9c8bf624108a999321b36d2ad8151/fc27-top-27-men-feat-img-16x9.jpg" alt="" />
+      <div class="veil"></div>
+      <div class="wrap inner">
+        <h2 class="display center">O que os jogadores dizem</h2>
+        <div class="qgrid">
+          <blockquote><div class="stars">★★★★★</div><p>“Pedi no WhatsApp, escolhi o Comfort Mode e as coins caíram rápido. Sem pacote enrolado.”</p><footer>Lucas M.</footer></blockquote>
+          <blockquote><div class="stars">★★★★★</div><p>“Fiz pelo lance. Listei a carta, eles deram o bid e pronto. Atendimento show.”</p><footer>Rafael S.</footer></blockquote>
+          <blockquote><div class="stars">★★★★★</div><p>“O que mais gostei foi poder negociar a quantidade. Tirei as dúvidas antes de pagar.”</p><footer>Gabriel O.</footer></blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <h2 class="display center">Perguntas frequentes</h2>
+        <div class="faq">
+          <details><summary>Como recebo as coins no EA FC 27?</summary><p>Temos dois métodos. No Lance, você lista uma carta no mercado de transferências e damos um lance com o valor da carta + as coins + a taxa da EA. No Comfort Mode, a entrega é feita pelo Web App, de forma automatizada. Quantidade e método se combinam no WhatsApp.</p></details>
+          <details><summary>O que é o método de Lance?</summary><p>Você nos diz quanto quer comprar. Pedimos que liste uma carta específica no mercado. O lance cobre o preço da carta, as coins contratadas e a taxa da EA. Não pedimos login da conta neste método.</p></details>
+          <details><summary>O que é o Comfort Mode?</summary><p>A conta precisa ter o Web App liberado. Usamos e-mail, senha e códigos de segurança para o robô concluir a transferência. Não é necessário ter muitas coins no clube. Hoje é o método mais seguro que oferecemos.</p></details>
+          <details><summary>Vocês pedem a senha da conta?</summary><p>Só no Comfort Mode, junto com o e-mail e os códigos de segurança do Web App. No método de Lance, você opera a conta — nós apenas damos o lance na carta listada.</p></details>
+          <details><summary>Quais plataformas vocês atendem?</summary><p>PlayStation, Xbox e PC. Informe a plataforma na primeira mensagem do WhatsApp.</p></details>
+          <details><summary>Quais formas de pagamento?</summary><p>Pix é o caminho mais rápido. Outras opções podem ser combinadas no WhatsApp.</p></details>
+          <details><summary>Quanto tempo demora a entrega?</summary><p>Na maior parte dos pedidos, minutos após o pagamento. No Comfort Mode, o tempo depende da liberação do Web App e dos códigos.</p></details>
+          <details><summary>Vocês têm pacotes prontos?</summary><p>Não. A quantidade é combinada no WhatsApp, de acordo com o que o seu Ultimate Team precisa e com o preço do mercado na hora.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <img src="https://drop-assets.ea.com/images/73kpnAMVrJIXvZtlXgY7Nr/41e830040c36e44ddb2875f6b86c6364/fc27-icons-buy-16x9.png" alt="" />
+      <div class="veil"></div>
+      <div class="inner">
+        <h2 class="display">Fecha no WhatsApp. Sem pacote, sem fila.</h2>
+        <p>Diz a quantidade, a plataforma e o método — Lance ou Comfort Mode. A gente monta o pedido na hora.</p>
+        <a class="btn lg" href="https://wa.me/5511933081840?text=Ol%C3%A1%21%20Quero%20comprar%20coins%20para%20EA%20FC%2027%20Ultimate%20Team." target="_blank" rel="noopener noreferrer">Falar no WhatsApp agora</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 GOAT FC COINS. Todos os direitos reservados.</p>
+    <a href="https://www.instagram.com/goatfccoins/" target="_blank" rel="noopener noreferrer">@goatfccoins</a>
+    <p class="tiny">GOAT FC COINS não é afiliada à Electronic Arts. EA SPORTS FC e Ultimate Team são marcas de seus respectivos donos. Produto independente de coins para o modo Ultimate Team.</p>
+  </footer>
+
+  <a class="fab" href="https://wa.me/5511933081840?text=Ol%C3%A1%21%20Quero%20comprar%20coins%20para%20EA%20FC%2027%20Ultimate%20Team." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">WA</a>
+</body>
+</html>
